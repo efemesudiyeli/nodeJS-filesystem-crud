@@ -1,4 +1,4 @@
-import { writeFile, readFile, appendFile, write, unlink } from "fs";
+import { writeFile, readFile, unlink } from "fs";
 
 let exampleData = {
   name: "Employee 1 Name",
