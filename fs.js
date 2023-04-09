@@ -1,4 +1,4 @@
-import { writeFile, readFile, appendFile, write, unlink } from "fs";
+import { writeFile, readFile, unlink } from "fs";
 
 let exampleData = {
   name: "Employee 1 Name",
@@ -8,12 +8,10 @@ let exampleData = {
 };
 
 writeFile("./employees.json", JSON.stringify(exampleData), () => {
-  console.log("File created");
+  readFile("./employees.json", "utf-8", (err, data) =>
+    err ? console.error(err) : fileCallback(data)
+  );
 });
-
-readFile("./employees.json", "utf-8", (err, data) =>
-  err ? console.error(err) : fileCallback(data)
-);
 
 function fileCallback(data) {
   console.log(data);
